@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import logging
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Protocol
 
 from .models import Alert, Listing
@@ -55,7 +55,7 @@ class EbayHtmlFetcher:
             raise FetchError(
                 "Playwright is required for eBay HTML fetching. "
                 "Install it with `pip install -r requirements.txt` and "
-                "`python -m playwright install chromium`."
+                "`python3 -m playwright install chromium`."
             ) from exc
 
         with sync_playwright() as p:
@@ -129,7 +129,7 @@ class Watcher:
                 f"{describe_search_page(html)}"
             )
 
-        now = datetime.now(UTC)
+        now = datetime.now(timezone.utc)
         now_iso = now.isoformat()
         initialized = self.store.is_initialized()
         previous_items = self.store.get_items()

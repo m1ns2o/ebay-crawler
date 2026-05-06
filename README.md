@@ -8,7 +8,7 @@
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m playwright install chromium
+python3 -m playwright install chromium
 cp .env.example .env
 ```
 
@@ -19,11 +19,11 @@ cp .env.example .env
 ## 실행
 
 ```bash
-python -m ebay_watch_bot once --dry-run
-python -m ebay_watch_bot once
-python -m ebay_watch_bot run
-python -m ebay_watch_bot test-telegram
-python -m ebay_watch_bot run --interval 900 --jitter 120 --heartbeat-interval 60
+python3 -m ebay_watch_bot once --dry-run
+python3 -m ebay_watch_bot once
+python3 -m ebay_watch_bot run
+python3 -m ebay_watch_bot test-telegram
+python3 -m ebay_watch_bot run --interval 900 --jitter 120 --heartbeat-interval 60
 ```
 
 - `once`: 한 번만 확인합니다.
@@ -44,7 +44,7 @@ python -m ebay_watch_bot run --interval 900 --jitter 120 --heartbeat-interval 60
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m playwright install chromium
+python3 -m playwright install chromium
 cp .env.example .env
 ```
 
@@ -61,20 +61,20 @@ HEARTBEAT_INTERVAL_SECONDS=60
 3. 첫 실행 기준 데이터를 저장합니다. 이때는 알림이 가지 않는 것이 정상입니다.
 
 ```bash
-python -m ebay_watch_bot once --dry-run
+python3 -m ebay_watch_bot once --dry-run
 ```
 
 4. 실제 Telegram 전송을 포함해 한 번 점검합니다.
 
 ```bash
-python -m ebay_watch_bot test-telegram
-python -m ebay_watch_bot once
+python3 -m ebay_watch_bot test-telegram
+python3 -m ebay_watch_bot once
 ```
 
 5. 상시 감시를 시작합니다.
 
 ```bash
-python -m ebay_watch_bot run
+python3 -m ebay_watch_bot run
 ```
 
 실행 중에는 다음과 같은 로그가 반복 출력됩니다.
@@ -97,6 +97,6 @@ Waiting for next eBay check: 913 seconds remaining
 ## 검증
 
 ```bash
-python -m py_compile ebay_watch_bot/*.py
-python -m unittest discover -s tests
+python3 -m py_compile ebay_watch_bot/*.py
+python3 -m unittest discover -s tests
 ```

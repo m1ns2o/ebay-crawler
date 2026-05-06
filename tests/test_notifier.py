@@ -1,4 +1,4 @@
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 import unittest
 
 from ebay_watch_bot.models import Alert, Listing
@@ -38,7 +38,7 @@ class NotifierTests(unittest.TestCase):
 
         message = compose_alert_message(
             alert,
-            detected_at=datetime(2026, 5, 6, 1, 2, 3, tzinfo=UTC),
+            detected_at=datetime(2026, 5, 6, 1, 2, 3, tzinfo=timezone.utc),
         )
 
         self.assertIn("재입고", message)
