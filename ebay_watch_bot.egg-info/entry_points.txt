@@ -1,0 +1,2 @@
+[console_scripts]
+ebay-watch-bot = ebay_watch_bot.cli:main
